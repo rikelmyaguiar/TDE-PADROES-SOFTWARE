@@ -114,7 +114,6 @@ python -m src.main
 
 ## Disciplina
 
-- Curso: Análise e Desenvolvimento de Sistemas
 - Disciplina: Padrões de Projeto de Software
 - Professor: Marcos Gomes da Silva Rocha
 - Período: 5º
