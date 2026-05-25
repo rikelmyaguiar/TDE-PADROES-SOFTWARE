@@ -1,0 +1,2 @@
+# Nenhuma dependência externa necessária por enquanto
+# Python 3.8+ possui todas as bibliotecas necessárias
