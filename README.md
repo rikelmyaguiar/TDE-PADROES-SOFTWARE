@@ -1,119 +1,68 @@
 # Sistema de Notificações de E-commerce
 
-Trabalho Discente Efetivo (TDE) da disciplina Padrões de Projeto de Software.
+Trabalho da disciplina Padrões de Projeto de Software.
 
-## Objetivo
+## Sobre o projeto
 
-Desenvolvimento de um protótipo de sistema de notificações que utiliza a integração dos padrões Observer e Strategy para garantir escalabilidade e facilitar a manutenção do código.
+O sistema simula notificações de um e-commerce utilizando os padrões de projeto Observer e Strategy.
 
-## Descrição do Sistema
+Quando uma venda é realizada, os observadores cadastrados são notificados automaticamente. Cada observador utiliza uma estratégia de notificação diferente, como Email, SMS ou Log.
 
-O sistema simula notificações de um e-commerce. Quando uma venda é realizada, diferentes observadores são notificados automaticamente e cada um utiliza sua própria estratégia de comunicação (Email, SMS ou Log em arquivo).
+## Padrões utilizados
 
-## Padrões de Projeto Implementados
+### Observer
+Utilizado para notificar automaticamente os observadores quando uma venda é realizada.
 
-### Observer (Comportamental)
-
-Define uma dependência um-para-muitos entre objetos. Quando o objeto observado (Subject) muda de estado, todos os seus observadores são notificados automaticamente.
-
-**Implementação:**
 - Subject: `SistemaVendas`
-- Observers: `NotificadorCliente`, `NotificadorAdmin`, `NotificadorLog`
-- Evento observado: Venda realizada
+- Observers:
+  - `NotificadorCliente`
+  - `NotificadorAdmin`
+  - `NotificadorLog`
 
-### Strategy (Comportamental)
+### Strategy
+Utilizado para definir diferentes formas de notificação.
 
-Define uma família de algoritmos, encapsula cada um deles e os torna intercambiáveis. Permite que o algoritmo varie independentemente dos clientes que o utilizam.
+- `NotificacaoEmail`
+- `NotificacaoSMS`
+- `NotificacaoLog`
 
-**Implementação:**
-- Interface: `EstrategiaNotificacao`
-- Estratégias concretas: `NotificacaoEmail`, `NotificacaoSMS`, `NotificacaoLog`
-- Contexto: Cada notificador pode escolher e trocar sua estratégia dinamicamente
+As estratégias podem ser alteradas em tempo de execução.
 
-### Integração dos Padrões
+## Estrutura do projeto
 
-1. Sistema de vendas registra uma venda e dispara o evento
-2. Todos os observadores registrados são notificados (Observer)
-3. Cada observador executa sua notificação usando a estratégia configurada (Strategy)
-4. As estratégias podem ser trocadas em tempo de execução sem alterar o código dos observadores
-
-## Estrutura do Projeto
-
-```
+```text
 tde-padroes-projeto/
 │
 ├── src/
-│   ├── __init__.py
-│   ├── main.py               
+│   ├── main.py
 │   │
-│   ├── models/                
-│   │   ├── __init__.py
-│   │   ├── cliente.py         
-│   │   └── venda.py           
-│   │
-│   ├── observer/              
-│   │   ├── __init__.py
-│   │   ├── subject.py         
-│   │   ├── observer.py         
-│   │   └── notificadores.py   
-│   │
-│   └── strategy/              
-│       ├── __init__.py
-│       ├── estrategia_notificacao.py    
-│       └── estrategias_concretas.py     
+│   ├── models/
+│   ├── observer/
+│   └── strategy/
 │
-├── tests/                      
-│   └── __init__.py
-│
-├── docs/                      
-│   └── diagrama_uml.png       
-│
-├── logs/                       
-│   └── notificacoes.log
-│
-├── .gitignore
+├── docs/
+├── logs/
 ├── README.md
-└── requirements.txt
+└── .gitignore
 ```
 
-## Requisitos
+## Como executar
 
-- Python 3.8 ou superior
-- Nenhuma biblioteca externa necessária (usa apenas bibliotecas padrão do Python)
+No terminal:
 
-## Como Executar
-
-1. Clone ou extraia o projeto
-
-2. Navegue até o diretório do projeto:
-```bash
-cd tde-padroes-projeto
-```
-
-3. Execute o sistema:
 ```bash
 python -m src.main
 ```
 
 ## Funcionalidades
 
-- Realizar vendas de forma interativa
-- Configurar estratégias de notificação em tempo de execução
+- Realizar vendas
+- Configurar notificações
 - Visualizar histórico de vendas
-- Demonstração automática completa do sistema
-- Informações detalhadas sobre os padrões implementados
-
-## Boas Práticas Aplicadas
-
-- Código organizado seguindo princípios SOLID
-- Nomenclatura clara e significativa
-- Separação de responsabilidades
-- Uso de docstrings em todas as classes e métodos
-- Type hints para melhor legibilidade
-- Encapsulamento adequado com propriedades
+- Registrar logs automaticamente
 
 ## Disciplina
 
-- Disciplina: Padrões de Projeto de Software
+- Padrões de Projeto de Software
 - Professor: Marcos Gomes da Silva Rocha
-- Período: 5º
+- 5º período
