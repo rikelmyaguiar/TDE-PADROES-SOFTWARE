@@ -38,15 +38,43 @@ Define uma família de algoritmos, encapsula cada um deles e os torna intercambi
 4. As estratégias podem ser trocadas em tempo de execução sem alterar o código dos observadores
 
 ## Estrutura do Projeto
+
+```
 tde-padroes-projeto/
+│
 ├── src/
-│   ├── models/              # Entidades do domínio (Cliente, Venda)
-│   ├── observer/            # Implementação do padrão Observer
-│   ├── strategy/            # Implementação do padrão Strategy
-│   └── main.py              # Ponto de entrada do sistema
-├── logs/                    # Arquivos de log gerados pelo sistema
-├── docs/                    # Documentação e diagrama UML
-└── README.md
+│   ├── __init__.py
+│   ├── main.py               
+│   │
+│   ├── models/                
+│   │   ├── __init__.py
+│   │   ├── cliente.py         
+│   │   └── venda.py           
+│   │
+│   ├── observer/              
+│   │   ├── __init__.py
+│   │   ├── subject.py         
+│   │   ├── observer.py         
+│   │   └── notificadores.py   
+│   │
+│   └── strategy/              
+│       ├── __init__.py
+│       ├── estrategia_notificacao.py    
+│       └── estrategias_concretas.py     
+│
+├── tests/                      
+│   └── __init__.py
+│
+├── docs/                      
+│   └── diagrama_uml.png       
+│
+├── logs/                       
+│   └── notificacoes.log
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
 
 ## Requisitos
 
@@ -84,16 +112,8 @@ python -m src.main
 - Type hints para melhor legibilidade
 - Encapsulamento adequado com propriedades
 
-## Critérios de Avaliação Atendidos
-
-- Integração lógica entre Observer e Strategy (40%)
-- Qualidade e legibilidade do código com boas práticas (30%)
-- Modelagem UML correta e completa (20%)
-- Organização da documentação (10%)
-
 ## Disciplina
 
-- Curso: Análise e Desenvolvimento de Sistemas
 - Disciplina: Padrões de Projeto de Software
 - Professor: Marcos Gomes da Silva Rocha
 - Período: 5º
