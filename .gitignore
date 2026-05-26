@@ -15,9 +15,8 @@ ENV/
 *.swo
 
 # Logs
-logs/*.log
-!logs/.gitkeep
+logs/
 
-# OS
+# Sistema operacional
 .DS_Store
 Thumbs.db
